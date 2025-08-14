@@ -1,0 +1,158 @@
+body, html, #app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  overflow: hidden;
+  touch-action: pan-up;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  text-shadow: 0 0 5px #000000, 0 0 20px #000;
+  user-select: none;
+}
+
+#app h1 {
+  --fontSize: 50px;
+  --lineHeight: 70px;
+  width: auto;
+  height: calc(2 * var(--lineHeight));
+  line-height: var(--lineHeight);
+  margin: calc(50vh - var(--lineHeight)) auto 0;
+  font-size: var(--fontSize);
+	
+}
+
+#app a {
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+}
+
+#app canvas {
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+}
+
+@keyframes flap {
+	0%, 20%, 80%, 100% {
+		transform: scaleX(1) rotate(5deg);
+	}
+	50% {
+		transform: scaleX(0.7) rotate(7deg);
+	}
+}
+
+h1 {
+	text-align: center;
+	font-size: 2rem;
+}
+
+h1 span {
+	display: inline-block;
+	animation: flap 0.75s infinite ease-in-out;
+}
+
+#controls {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+}
+.btn {
+	background-color: rgba(0, 0, 0, 0.4);
+	border: none;
+	color: rgba(255, 255, 255, 0.4);
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 2px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+.btn:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	color: rgba(255, 255, 0, 1);
+}
+#fullscreenBtn {
+	font-size: 20px;
+	z-index: 100;
+}
+
+
+.ripple-btn {
+  position: fixed;
+  bottom: 50px;
+  left: 45%;
+  padding: 1em 1.5em;
+  color: #000000;
+  font-size: 1.15rem;
+  border-radius: 100vmax;
+  background-color: transparent;
+  border: 2px solid #080808;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ripple-btn span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  width: 20em;
+  height: 20em;
+  background: linear-gradient(90deg, #c31616, #bc14b0);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 1.5s linear;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes ripple-animate {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.typing-container {
+  position: fixed;   /* tetap di layar walau scroll */
+  top: 10px;         /* jarak dari atas */
+  left: 10px;        /* jarak dari kiri */
+}
+.typing-box {
+  width: 400px;
+  padding: 10px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 18px;
+  overflow: hidden;
+  /* white-space: nowrap;  <-- ini bikin text tidak pindah baris */
+  white-space: pre-line; /* biar \n terbaca dan baris baru muncul */
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  background-color: white;
+  margin-left: 3px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.1%, 100% { opacity: 0; }
+}

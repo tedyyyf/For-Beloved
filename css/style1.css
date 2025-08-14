@@ -1,0 +1,64 @@
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+p {
+  margin: 0 0;
+  position: absolute;
+  font: 16px Verdana;
+  color: #eee;
+  height: 25px;
+  top: calc(100vh - 30px);
+  text-shadow: 0 0 2px white;
+}
+p a {
+  text-decoration: none;
+  color: #aaa;
+}
+span {
+  font-size: 11px;
+}
+p > a:first-of-type {
+  font-size: 20px;
+}
+body {
+  overflow: hidden;
+}
+
+.ripple-btn {
+  position: fixed;
+  bottom: 50px;
+  left: 45%;
+  padding: 1em 1.5em;
+  color: #ffffff;
+  font-size: 1.15rem;
+  border-radius: 100vmax;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ripple-btn span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  width: 20em;
+  height: 20em;
+  background: linear-gradient(90deg, #c31616, #bc14b0);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 1s linear;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes ripple-animate {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+

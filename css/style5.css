@@ -1,0 +1,35 @@
+.ripple-btn {
+  position: fixed;
+  bottom: 50px;
+  left:73%;
+  padding: 1em 1.5em;
+  color: #000000;
+  font-size: 1.15rem;
+  border-radius: 100vmax;
+  background-color: transparent;
+  border: 2px solid #080808;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ripple-btn span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  width: 20em;
+  height: 20em;
+  background: linear-gradient(90deg, #c31616, #bc14b0);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 1s linear;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes ripple-animate {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
